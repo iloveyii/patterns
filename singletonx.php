@@ -86,4 +86,4 @@ class TranslationX
 echo TranslationX::getInstance('sv')->translate('language') . PHP_EOL;
 echo TranslationX::getInstance('fr')->translate('language') . PHP_EOL;
 
-echo TranslationX::getInstance('sv')->translate('language') . PHP_EOL;
+echo TranslationX::getInstance('sv')->translate('city') . PHP_EOL;
