@@ -1,7 +1,6 @@
 <?php
 /**
  * Design pattern - Factory
- * The extended version contains an array of instances
  *
  * @author: Hazrat Ali
  * @mail: iloveyii@yahoo.com
@@ -18,6 +17,7 @@ class Rectangle implements iShape
 
     public function __construct($width, $height)
     {
+        echo 'Rectangle:' . PHP_EOL;
         list($this->width, $this->height) = [$width, $height];
     }
 
@@ -59,6 +59,7 @@ class Square implements iShape
 
     public function __construct($length)
     {
+        echo 'Square:' . PHP_EOL;
         list($this->width, $this->height) = [$length, $length];
     }
 
@@ -90,16 +91,41 @@ class Square implements iShape
         $this->drawWidth('-');
         echo PHP_EOL;
     }
-
-
 }
 
+class ShapeFactory
+{
+    private $types = ['Rectangle', 'Square'];
+
+    public function create($type)
+    {
+        if( ! in_array($type, $this->types)) {
+            die('Invalid type ' . $type . ', valid types are ' . implode(',', $this->types) . PHP_EOL);
+        }
+
+        if($type == 'Rectangle') {
+            return new Rectangle(50, 15);
+        }
+
+        if($type == 'Square') {
+            return new Square(20);
+        }
+    }
+}
 
 // TEST DRIVE
 
+// normal way of creating and using objects
 $rect = new Rectangle(50, 15);
 $rect->draw();
 
-
 $sqr = new Square(20);
 $sqr->draw();
+
+// factory way of creating and using objects
+$fac = new ShapeFactory();
+$fac->create('Rectangle')->draw();
+
+$fac->create('Square')->draw();
+
+$fac->create('Triangle')->draw();
