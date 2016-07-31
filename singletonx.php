@@ -1,4 +1,8 @@
 <?php
+
+define('EOL', php_sapi_name()=='cli' ? PHP_EOL : '<br/>');
+define('SPC', php_sapi_name()=='cli' ? ' ' : '&nbsp;');
+
 /**
  * Design pattern - Singleton extended
  * The extended version contains an array of instances
@@ -17,9 +21,9 @@ class TranslationX
     public function __construct($language)
     {
         $this->language = $language;
-        $this->readTanslationFile('string.json');
+        $this->readTranslationFile('string.json');
 
-        echo 'Object initiated with language ' , $language . PHP_EOL;
+        echo 'Object initiated with language ' , $language . EOL;
     }
 
     public static function getInstance($language)
@@ -36,7 +40,7 @@ class TranslationX
         return isset($this->translations[$text]) ? $this->translations[$text] : false;
     }
 
-    private function readTanslationFile($fileName)
+    private function readTranslationFile($fileName)
     {
         $filePath = $this->getPathAbs($fileName);
 
@@ -55,10 +59,12 @@ class TranslationX
                 'country'=>'pays',
                 'city'=>'ville'
             ]);
+
             if($this->language == 'sv') {
                 file_put_contents($filePath, $svContents);
                 $contents = $svContents;
             }
+
             if($this->language == 'fr') {
                 file_put_contents($filePath, $frContents);
                 $contents = $frContents;
@@ -83,7 +89,7 @@ class TranslationX
 // TEST DRIVE
 
 // singleton way - neat and one liner
-echo TranslationX::getInstance('sv')->translate('language') . PHP_EOL;
-echo TranslationX::getInstance('fr')->translate('language') . PHP_EOL;
+echo TranslationX::getInstance('sv')->translate('country') . EOL;
+echo TranslationX::getInstance('fr')->translate('country') . EOL;
 
-echo TranslationX::getInstance('sv')->translate('city') . PHP_EOL;
+echo TranslationX::getInstance('sv')->translate('country') . EOL;

@@ -1,4 +1,8 @@
 <?php
+
+define('EOL', php_sapi_name()=='cli' ? PHP_EOL : '<br/>');
+define('SPC', php_sapi_name()=='cli' ? ' ' : '&nbsp;');
+
 /**
  * Design pattern - Factory
  *
@@ -17,7 +21,7 @@ class Rectangle implements iShape
 
     public function __construct($width, $height)
     {
-        echo 'Rectangle:' . PHP_EOL;
+        echo 'Rectangle:' . EOL;
         list($this->width, $this->height) = [$width, $height];
     }
 
@@ -34,9 +38,9 @@ class Rectangle implements iShape
         $this->width = $this->width - 2;
         for($i=0; $i < $this->height/2; $i++) {
             echo $char;
-            $this->drawWidth(' ');
+            $this->drawWidth(SPC);
             echo $char;
-            echo PHP_EOL;
+            echo EOL;
         }
 
         $this->width = $tmpWidth;
@@ -44,11 +48,10 @@ class Rectangle implements iShape
     public function draw()
     {
         $this->drawWidth('-');
-        echo PHP_EOL;
+        echo EOL;
         $this->drawHeight('.');
         $this->drawWidth('-');
-        echo PHP_EOL;
-
+        echo EOL;
     }
 }
 
@@ -59,7 +62,7 @@ class Square implements iShape
 
     public function __construct($length)
     {
-        echo 'Square:' . PHP_EOL;
+        echo 'Square:' . EOL;
         list($this->width, $this->height) = [$length, $length];
     }
 
@@ -76,9 +79,9 @@ class Square implements iShape
         $this->width = $this->width - 2;
         for($i=0; $i < $this->height/3; $i++) {
             echo $char;
-            $this->drawWidth(' ');
+            $this->drawWidth(SPC);
             echo $char;
-            echo PHP_EOL;
+            echo EOL;
         }
 
         $this->width = $tmpWidth;
@@ -86,10 +89,10 @@ class Square implements iShape
     public function draw()
     {
         $this->drawWidth('-');
-        echo PHP_EOL;
+        echo EOL;
         $this->drawHeight('.');
         $this->drawWidth('-');
-        echo PHP_EOL;
+        echo EOL;
     }
 }
 
@@ -100,7 +103,7 @@ class ShapeFactory
     public function create($type)
     {
         if( ! in_array($type, $this->types)) {
-            die('Invalid type ' . $type . ', valid types are ' . implode(',', $this->types) . PHP_EOL);
+            die('Invalid type ' . $type . ', valid types are ' . implode(',', $this->types) . EOL);
         }
 
         if($type == 'Rectangle') {

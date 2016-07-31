@@ -1,4 +1,8 @@
 <?php
+
+define('EOL', php_sapi_name()=='cli' ? PHP_EOL : '<br/>');
+define('SPC', php_sapi_name()=='cli' ? ' ' : '&nbsp;');
+
 /**
  * Design pattern - Singleton
  * @author: Hazrat Ali
@@ -68,7 +72,8 @@ class Translation
 
 // object way
 $translation = new Translation('sv');
-echo $translation->translate('language') . PHP_EOL;
+echo $translation->translate('country') . EOL;
 
 // singleton way - neat and one liner
-echo Translation::getInstance('sv')->translate('language') . PHP_EOL;
+echo Translation::getInstance('sv')->translate('country') . EOL;
+echo Translation::getInstance('fr')->translate('country') . EOL;
