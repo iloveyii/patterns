@@ -1,0 +1,15 @@
+{
+    "name": "alex/decorator",
+    "authors": [
+        {
+            "name": "Ali",
+            "email": "iloveyii@yahoo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Deco\\" : "src/"
+        }
+    }
+
+}
