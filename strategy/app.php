@@ -18,4 +18,4 @@ class App
 
 require 'vendor/autoload.php';
 $app = new App();
-$app->log('Some action happened.');
+$app->log('Some action happened.', new FileLogger());
