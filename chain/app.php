@@ -17,3 +17,4 @@ $lights->setSuccessor($alarm);
 $homeStatus = new HomeStatus();
 $lock->check($homeStatus);
 echo PHP_EOL;
+

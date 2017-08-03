@@ -5,6 +5,6 @@ namespace Chain;
 class HomeStatus
 {
     public $locked = true;
-    public $lightsOff = false;
+    public $lightsOff = true;
     public $alarmON = true;
 }
