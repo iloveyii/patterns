@@ -16,5 +16,6 @@ foreach($parameters as $param)
 {
     //Before you call getClass() that class must be defined!
     echo $param->getClass()->name;
+    $param->
     echo PHP_EOL;
 }
