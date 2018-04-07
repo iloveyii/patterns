@@ -1,21 +1,10 @@
 <?php
 
-use Stra\Logger;
-use Stra\DatabaseLogger;
-use Stra\FileLogger;
-
-class App
-{
-    public function log($msg, Logger $logger = null)
-    {
-        if(is_null($logger)) {
-            $logger = new DatabaseLogger();
-        }
-
-        $logger->log($msg);
-    }
-}
-
 require 'vendor/autoload.php';
-$app = new App();
+
+use Stra\Strategy;
+use Stra\FileLogger;
+use Stra\DatabaseLogger;
+
+$app = new Strategy();
 $app->log('Some action happened.', new FileLogger());
