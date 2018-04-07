@@ -2,7 +2,6 @@
 
 namespace Chain;
 
-
 class Alarm extends HomeChecker
 {
     public function check(HomeStatus $home)

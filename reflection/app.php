@@ -19,3 +19,4 @@ foreach($parameters as $param)
     $param->
     echo PHP_EOL;
 }
+

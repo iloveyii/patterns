@@ -1,7 +1,7 @@
 <?php
 
-define('EOL', php_sapi_name()=='cli' ? PHP_EOL : '<br/>');
-define('SPC', php_sapi_name()=='cli' ? ' ' : '&nbsp;');
+namespace Patterns;
+
 
 /**
  * Design pattern - Singleton extended
@@ -11,7 +11,7 @@ define('SPC', php_sapi_name()=='cli' ? ' ' : '&nbsp;');
  * @mail: iloveyii@yahoo.com
  * Date: 2016-07-30
  */
-class TranslationX
+class SingletonX
 {
     private static $instances = [];
     private $dir = 'tr';
@@ -86,10 +86,3 @@ class TranslationX
     }
 }
 
-// TEST DRIVE
-
-// singleton way - neat and one liner
-echo TranslationX::getInstance('sv')->translate('country') . EOL;
-echo TranslationX::getInstance('fr')->translate('country') . EOL;
-
-echo TranslationX::getInstance('sv')->translate('country') . EOL;

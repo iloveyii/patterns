@@ -98,12 +98,12 @@ class Square implements iShape
 
 class ShapeFactory
 {
-    private $types = ['Rectangle', 'Square'];
+    private static $types = ['Rectangle', 'Square'];
 
-    public function create($type)
+    public static function create($type)
     {
-        if( ! in_array($type, $this->types)) {
-            die('Invalid type ' . $type . ', valid types are ' . implode(',', $this->types) . EOL);
+        if( ! in_array($type, self::$types)) {
+            die('Invalid type ' . $type . ', valid types are ' . implode(',', self::$types) . EOL);
         }
 
         if($type == 'Rectangle') {
@@ -127,8 +127,7 @@ $sqr->draw();
 
 // factory way of creating and using objects
 $fac = new ShapeFactory();
-$fac->create('Rectangle')->draw();
+ShapeFactory::create('Rectangle')->draw();
+ShapeFactory::create('Square')->draw();
 
-$fac->create('Square')->draw();
-
-$fac->create('Triangle')->draw();
+ShapeFactory::create('Triangle')->draw();

@@ -1,0 +1,16 @@
+{
+    "name": "alex/singleton",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Hazrat Ali",
+            "email": "iloveyii@yahoo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Patterns\\": "src/"
+        }
+    },
+    "require": {}
+}
