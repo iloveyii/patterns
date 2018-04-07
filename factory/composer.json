@@ -1,0 +1,17 @@
+{
+    "name": "alex/factory",
+    "description": "This software design pattern factory",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Hazrat Ali",
+            "email": "iloveyii@yahoo.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4": {
+            "Patterns\\":"src/"
+        }
+    },
+    "require": {}
+}
