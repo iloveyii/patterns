@@ -11,7 +11,7 @@ abstract class A
      */
     protected function showResult($result)
     {
-        var_dump($result);
+        echo $result . PHP_EOL;
     }
 
     /**
